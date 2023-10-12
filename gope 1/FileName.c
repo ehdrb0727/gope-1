@@ -34,6 +34,7 @@ int tick = 0;
 
 int main(void) {
 	printf("hello world");
+	printf("aaaa");
 	//for (int i = 0; i < 10; i++) {
 	//	for (int j = 0; j < 20; j++) {
 	//		if (i == 0 || i == 9 || j == 0 || j == 19) {
