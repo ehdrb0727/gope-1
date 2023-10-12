@@ -33,62 +33,63 @@ int tick = 0;
 
 
 int main(void) {
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 20; j++) {
-			if (i == 0 || i == 9 || j == 0 || j == 19) {
-				map[i][j] = '#';
-			}
-			else
-				map[i][j] = ' ';
-		}
-	}
-	srand(time(NULL));
-	map[1][1] = '*';
-	map[5][10] = '@';
-	int dx[4] = { -1 , 1, 0 ,0 };
-	int dy[4] = { 0,0,-1,1 };
-	int x = 1, y = 1;
-	int m = 5, n = 10;
-	int dir = 3;
-	while (1) {
-		int ai = rand() % 4;
-		if (_kbhit()) {
-			int key = _getch();
-			switch (key) {
-			case 'w': dir = 0; break;
-			case 's': dir = 1; break;
-			case 'a': dir = 2; break;
-			case 'd': dir = 3; break;
-			case 'q': return 0;
-			}
-		}	
-		if (tick % 100 == 0) {
-			int nx = x + dx[dir]; //x 의 좌표에다가 dx[dir]에 해당하는 값을 더해준다는 거지
-			int ny = y + dy[dir]; //y의 좌표에다가 dy[dir]에 해당하는 값을 더해줌
-			int nxx = m + dx[ai];
-			int nyy = n + dy[ai];
-			if (nx > 0 && nx < 9 &&
-				ny > 0 && ny < 19) {
-				gotoxy(x, y); printf(" ");
-				map[x][y] = ' ';
-				x = nx; y = ny;
-				gotoxy(x, y); printf("*");
-				map[x][y] = ' ';
-			}
-			if (nxx > 0 && nxx< 9 &&
-				nyy > 0 && nyy < 19) {
-				gotoxy(m, n); printf(" ");
-				map[m][n] = ' ';
-				m = nxx; n = nyy;
-				gotoxy(m, n); printf("@");
-				map[m][n] = ' ';
-			}
-			if (m == x && n == y) break;
-		}
-		draw();
-		Sleep(10);
-		tick += 10;
-	}
+	printf("hello world");
+	//for (int i = 0; i < 10; i++) {
+	//	for (int j = 0; j < 20; j++) {
+	//		if (i == 0 || i == 9 || j == 0 || j == 19) {
+	//			map[i][j] = '#';
+	//		}
+	//		else
+	//			map[i][j] = ' ';
+	//	}
+	//}
+	//srand(time(NULL));
+	//map[1][1] = '*';
+	//map[5][10] = '@';
+	//int dx[4] = { -1 , 1, 0 ,0 };
+	//int dy[4] = { 0,0,-1,1 };
+	//int x = 1, y = 1;
+	//int m = 5, n = 10;
+	//int dir = 3;
+	//while (1) {
+	//	int ai = rand() % 4;
+	//	if (_kbhit()) {
+	//		int key = _getch();
+	//		switch (key) {
+	//		case 'w': dir = 0; break;
+	//		case 's': dir = 1; break;
+	//		case 'a': dir = 2; break;
+	//		case 'd': dir = 3; break;
+	//		case 'q': return 0;
+	//		}
+	//	}	
+	//	if (tick % 100 == 0) {
+	//		int nx = x + dx[dir]; //x 의 좌표에다가 dx[dir]에 해당하는 값을 더해준다는 거지
+	//		int ny = y + dy[dir]; //y의 좌표에다가 dy[dir]에 해당하는 값을 더해줌
+	//		int nxx = m + dx[ai];
+	//		int nyy = n + dy[ai];
+	//		if (nx > 0 && nx < 9 &&
+	//			ny > 0 && ny < 19) {
+	//			gotoxy(x, y); printf(" ");
+	//			map[x][y] = ' ';
+	//			x = nx; y = ny;
+	//			gotoxy(x, y); printf("*");
+	//			map[x][y] = ' ';
+	//		}
+	//		if (nxx > 0 && nxx< 9 &&
+	//			nyy > 0 && nyy < 19) {
+	//			gotoxy(m, n); printf(" ");
+	//			map[m][n] = ' ';
+	//			m = nxx; n = nyy;
+	//			gotoxy(m, n); printf("@");
+	//			map[m][n] = ' ';
+	//		}
+	//		if (m == x && n == y) break;
+	//	}
+	//	draw();
+	//	Sleep(10);
+	//	tick += 10;
+	//}
 	
 }
 /*int y = 1;
