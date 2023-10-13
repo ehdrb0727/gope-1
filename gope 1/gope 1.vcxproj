@@ -127,7 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\canvas.c" />
+    <ClCompile Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\jjuggumi.c" />
+    <ClCompile Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\keyin.c" />
+    <ClCompile Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\sample.c" />
     <ClCompile Include="FileName.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\canvas.h" />
+    <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\jjuggumi.h" />
+    <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\keyin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
