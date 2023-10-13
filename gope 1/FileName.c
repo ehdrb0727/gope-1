@@ -30,7 +30,10 @@ char map[10][20]; front[10][20];
 //}
 
 int tick = 0;
-
+int main(void) {
+	printf("hello world");
+	return 0;
+}
 
 //int main(void) {
 //	printf("hello world");
