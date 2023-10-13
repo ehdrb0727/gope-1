@@ -4,9 +4,11 @@
 #include <time.h>
 
 int main(void) {
-	jjuggumi_init();
-	sample();
-	
+	printf("hello world");
+	//jjuggumi_init();
+	//sample();
+
+
 	//mugunghwa();
 	//nightgame();
 	//juldarigi();
