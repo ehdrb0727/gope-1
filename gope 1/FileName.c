@@ -5,6 +5,7 @@
 
 int main(void) {
 	printf("hello world");
+	printf("hello world");
 	//jjuggumi_init();
 	//sample();
 	
