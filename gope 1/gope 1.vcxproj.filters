@@ -32,14 +32,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\canvas.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\jjuggumi.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\canvas.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\OneDrive\바탕 화면\쭈꾸미게임\jjuggumi_v0\keyin.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
