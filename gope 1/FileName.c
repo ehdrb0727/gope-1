@@ -6,7 +6,7 @@
 int main(void) {
 	jjuggumi_init();
 	sample();
-	asdf
+	//dialog();
 	//mugunghwa();
 	//nightgame();
 	//juldarigi();
