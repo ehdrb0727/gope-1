@@ -4,10 +4,8 @@
 #include <time.h>
 
 int main(void) {
-	printf("hello world");
-	//jjuggumi_init();
-	//sample();
-
+	jjuggumi_init();
+	sample();
 
 	//mugunghwa();
 	//nightgame();
