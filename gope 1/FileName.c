@@ -3,10 +3,6 @@
 #include <conio.h>
 #include <time.h>
 
-intro(void) {
-
-}
-
 int main(void) {
 	jjuggumi_init();
 	sample();
