@@ -31,6 +31,7 @@ void map_init(int n_row, int n_col) {
 
 	N_ROW = n_row;
 	N_COL = n_col;
+	
 	for (int i = 0; i < N_ROW; i++) {
 		// 대입문 이렇게 쓸 수 있는데 일부러 안 가르쳐줬음
 		back_buf[i][0] = back_buf[i][N_COL - 1] = '#';
@@ -77,5 +78,16 @@ void print_status(void) {
 }
 
 void dialog(char message[]) {
-
+	int ii = DIALOG_DURATION_SEC;
+	message = "곧 게임이 시작됩니다.";
+	if (ii > 1) {
+		for (int i = 4; i > 0; i--) {
+			printf("*************************\n");
+			printf("*%d %s*\n", i, message);
+			printf("*************************\n");
+			Sleep(1000);
+			system("cls");
+			ii--;
+		}
+	}
 }

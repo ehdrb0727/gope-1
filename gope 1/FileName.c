@@ -4,17 +4,7 @@
 #include <time.h>
 
 int main(void) {
-	int ii = 3;
-	if (ii > 0) {
-		for (int i = 4; i > 0; i--) {
-			printf("*************************\n");
-			printf("*%d 곧 게임이 시작됩니다.*\n", i);
-			printf("*************************\n");
-			sleep(1000);
-			system("cls");
-			ii--;
-		}
-	}
+	dialog();
 	/*jjuggumi_init();
 	sample();*/
 	//dialog();

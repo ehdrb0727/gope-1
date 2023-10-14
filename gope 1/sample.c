@@ -16,7 +16,8 @@ void move_tail(int i, int nx, int ny);
 int px[PLAYER_MAX], py[PLAYER_MAX], period[PLAYER_MAX];  // 각 플레이어 위치, 이동 주기
 
 void sample_init(void) {
-	map_init(15, 40);
+		
+	
 	int x, y;
 	for (int i = 0; i < n_player; i++) {
 		// 같은 자리가 나오면 다시 생성
@@ -89,6 +90,7 @@ void sample(void) {
 	system("cls");
 	display();
 	while (1) {
+		
 		// player 0만 손으로 움직임(4방향)
 		key_t key = get_key();
 		if (key == K_QUIT) {
