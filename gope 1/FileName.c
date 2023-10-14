@@ -4,9 +4,8 @@
 #include <time.h>
 
 int main(void) {
-	dialog();
-	/*jjuggumi_init();
-	sample();*/
+	jjuggumi_init();
+	sample();
 	//dialog();
 	//mugunghwa();
 	//nightgame();
