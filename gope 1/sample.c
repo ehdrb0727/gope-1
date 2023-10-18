@@ -106,8 +106,13 @@ void sample(void) {
 			}
 		}
 
+		Sleep(1000);
+		dialog("곧 게임이 시작됩니다.");
+
+
 		display();
 		Sleep(10);
 		tick += 10;
 	}
+
 }

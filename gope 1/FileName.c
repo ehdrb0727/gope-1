@@ -5,8 +5,8 @@
 
 int main(void) {
 	jjuggumi_init();
-	sample();
-	//dialog();
+    sample();
+	//dialog("곧 게임이 시작됩니다.");
 	//mugunghwa();
 	//nightgame();
 	//juldarigi();
