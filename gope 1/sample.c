@@ -88,26 +88,36 @@ void sample(void) {
 
 	system("cls");
 	display();
+	int ii = 4;
 	while (1) {
-		
+		if (ii == 4) {
+			dialog("곧 게임이 시작됩니다.");
+			system("cls");
+			draw();
+			ii--;
+		}
 		// player 0만 손으로 움직임(4방향)
-		key_t key = get_key();
-		if (key == K_QUIT) {
-			break;
-		}
-		else if (key != K_UNDEFINED) {
-			move_manual(key);
-		}
+		else {
 
-		// player 1 부터는 랜덤으로 움직임(8방향)
-		for (int i = 1; i < n_player; i++) {
-			if (tick % period[i] == 0) {
-				move_random(i, -1);
+			key_t key = get_key();
+			if (key == K_QUIT) {
+				break;
+			}
+			else if (key != K_UNDEFINED) {
+				move_manual(key);
+			}
+
+			// player 1 부터는 랜덤으로 움직임(8방향)
+			for (int i = 1; i < n_player; i++) {
+				if (tick % period[i] == 0) {
+					move_random(i, -1);
+				}
 			}
 		}
 
-		Sleep(1000);
-		dialog("곧 게임이 시작됩니다.");
+
+		//Sleep(1000);
+		//dialog("곧 게임이 시작됩니다.");
 
 
 		display();
