@@ -108,7 +108,7 @@ void sample(void) {
 			if (tick % period[i] == 0) {
 				move_random(i, -1);
 			}
-		}
+		 }
 		
 		display();
 		Sleep(10);
