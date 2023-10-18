@@ -90,5 +90,11 @@ void dialog(char message[]) {
 			Sleep(1000);
 			ii--;
 		}
+		gotoxy(5, 7);
+		printf("                           \n");
+		gotoxy(6, 7);
+		printf("                           \n");
+		gotoxy(7, 7);
+		printf("                           \n");
 	}
 }
