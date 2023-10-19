@@ -157,7 +157,6 @@ void npc_move(int player, int dir) {
 	} while (!placable(nx, ny));
 	move_tail(p, nx, ny);
 }
-
 void mg_init() {
 	map_init(15, 35);
 	int x, y;
@@ -173,7 +172,6 @@ void mg_init() {
 		back_buf[px[i]][py[i]] = '0' + i;  // (0 .. n_player-1)
 	}
 	tick = 0;
-
 }
 
 void mugunghwa(void) {
@@ -181,11 +179,9 @@ void mugunghwa(void) {
 	system("cls");
 	display();
 	int aa = 4;
+	//u_1();
 	while (1) {
-		/*if (aa == 4) {
-			dialog("곧 게임이 시작됩니다.");
-			aa--;
-		}*/
+		
 		// player 0만 손으로 움직임(4방향)ㄹ
 		key_t key = get_key();
 		if (key == K_QUIT) {
