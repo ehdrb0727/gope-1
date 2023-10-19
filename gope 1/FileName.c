@@ -39,8 +39,11 @@ int intro(void) {
     Sleep(1000);*/
     system("cls");
 }
-
+//char massage[100] = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
 int main(void) {
+    //int i = strlen(massage);
+    //printf("%c", massage[2]);
+    //printf("%c", massage[2], massage[3]);
 	jjuggumi_init();
     //intro();
     //sample();

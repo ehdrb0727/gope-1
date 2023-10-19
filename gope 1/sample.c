@@ -185,9 +185,7 @@ void mugunghwa(void) {
 	system("cls");
 	display_m();
 	int aa = 4;
-	//u_1();
 	while (1) {
-		
 		//player 0만 손으로 움직임(4방향)
 		key_t key = get_key();
 		if (key == K_QUIT) {
@@ -205,7 +203,7 @@ void mugunghwa(void) {
 		if (tick >= 8001) {
 			tick = 0;
 		}
-		//u_1();
+		u_1(tick);
 		display();
 		Sleep(10);
 		tick += 10;

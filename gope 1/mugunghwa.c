@@ -13,51 +13,51 @@
 #define DIR_ZERO	4
 
 void u_1(int count) {
-        char massage[100] = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
-        if (count == 700) {
-            gotoxy(N_ROW, 0);
-            printf("%c%c", massage[0], massage[1]);
-        }
-        if (count == 900) {
-            gotoxy(N_ROW, 2);
-            printf("%c%c", massage[2], massage[3]);
-        }
-        if (count == 1200) {
-            gotoxy(N_ROW, 4);
-            printf("%c%c", massage[4], massage[5]);
-        }
-        if (count == 1600) {
-            gotoxy(N_ROW, 6);
-            printf("%c%c", massage[6], massage[7]);
-        }
-        if (count == 2200) {
-            gotoxy(N_ROW, 8);
-            printf("%c%c", massage[8], massage[9]);
-        }
-        if (count == 3000) {
-            gotoxy(N_ROW, 10);
-            printf("%c%c", massage[10], massage[11]);
-        }
-        if (count == 3800) {
-            gotoxy(N_ROW, 12);
-            printf("%c%c", massage[12], massage[13]);
-        }
-        if (count == 4400) {
-            gotoxy(N_ROW, 14);
-            printf("%c%c", massage[14], massage[15]);
-        }
-        if (count == 4800) {
-            gotoxy(N_ROW, 16);
-            printf("%c%c", massage[16], massage[17]);
-        }
-        if (count == 5000) {
-            gotoxy(N_ROW, 18);
-            printf("%c", massage[18]);
-        }
-        if (count == 8000) {
-            gotoxy(N_ROW, 0);
-            printf("                                   ");
-        }
+    char massage[100] = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
+    if (count == 700) {
+        gotoxy(N_ROW, 0);
+        printf("%c%c", massage[0], massage[2]);
+    }
+    if (count == 900) {
+        gotoxy(N_ROW, 2);
+        printf("%c%c", massage[3], massage[5]);
+    }
+    if (count == 1200) {
+        gotoxy(N_ROW, 4);
+        printf("%c%c", massage[6], massage[8]);
+    }
+    if (count == 1600) {
+        gotoxy(N_ROW, 6);
+        printf("%c%c", massage[9], massage[11]);
+    }
+    if (count == 2200) {
+        gotoxy(N_ROW, 8);
+        printf("%c%c", massage[12], massage[14]);
+    }
+    if (count == 3000) {
+        gotoxy(N_ROW, 10);
+        printf("%c%c", massage[15], massage[17]);
+    }
+    if (count == 3800) {
+        gotoxy(N_ROW, 12);
+        printf("%c%c", massage[18], massage[20]);
+    }
+    if (count == 4400) {
+        gotoxy(N_ROW, 14);
+        printf("%c%c", massage[21], massage[23]);
+    }
+    if (count == 4800) {
+        gotoxy(N_ROW, 16);
+        printf("%c%c", massage[24], massage[26]);
+    }
+    if (count == 5000) {
+        gotoxy(N_ROW, 18);
+        printf("%c", massage[27]);
+    }
+    if (count == 8000) {
+        gotoxy(N_ROW, 0);
+        printf("                                   ");
+    }
 }
 //void sample_init(void);
 //void move_manual(key_t key);
