@@ -12,6 +12,34 @@
 #define DIR_RIGHT	3
 #define DIR_ZERO	4
 
+int tick = 0;
+void u_1(char count[]) {
+    while (1) {
+        int y = 1;
+        if (tick % 3000 == 0) {
+            gotoxy(14, 1);
+
+            count = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
+            for (int i = 0; i < strlen(count); i++) {
+                printf("%c", count[i]);
+
+                if (i <10) {
+                    Sleep(200);
+                }
+                else {
+                    Sleep(50);
+                }
+            }
+            system("cls");
+        }
+        if (tick % 1000 == 0) {
+            y++;
+        }
+        Sleep(10);
+        tick += 10;
+    }
+}
+
 //void sample_init(void);
 //void move_manual(key_t key);
 //void move_random(int i, int dir);

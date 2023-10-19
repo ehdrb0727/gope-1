@@ -157,6 +157,7 @@ void npc_move(int player, int dir) {
 	} while (!placable(nx, ny));
 	move_tail(p, nx, ny);
 }
+
 void mg_init() {
 	map_init(15, 35);
 	int x, y;
@@ -172,6 +173,7 @@ void mg_init() {
 		back_buf[px[i]][py[i]] = '0' + i;  // (0 .. n_player-1)
 	}
 	tick = 0;
+
 }
 
 void mugunghwa(void) {
