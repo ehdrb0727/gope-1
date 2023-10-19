@@ -41,9 +41,11 @@ int intro(void) {
 }
 
 int main(void) {
+    //mugunghwa();
 	jjuggumi_init();
-    intro();
-    sample();
+    mugunghwa();
+    //intro();
+    //sample();
 	//dialog("곧 게임이 시작됩니다.");
 	//mugunghwa();
 	//nightgame();
