@@ -14,48 +14,48 @@
 
 void u_1(int count) {
     //char massage[100] = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
-    if (count == 700) {
+    if (count == 100) {
         gotoxy(N_ROW, 0);
         printf("¹«");
     }
-    if (count == 900) {
+    if (count == 300) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã");
     }
-    if (count == 1200) {
+    if (count == 700) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­");
     }
-    if (count == 1600) {
+    if (count == 1500) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É");
     }
-    if (count == 2200) {
+    if (count == 2500) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ");
     }
-    if (count == 2800) {
+    if (count == 3500) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ");
     }
-    if (count == 3600) {
+    if (count == 4000) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú");
     }
-    if (count == 4200) {
+    if (count == 4400) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À");
     }
-    if (count == 4600) {
+    if (count == 4700) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï");
     }
-    if (count == 4800) {
+    if (count == 5000) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù");
         
     }
-    if (count == 7800) {
+    if (count == 8000) {
         gotoxy(N_ROW, 0);
         printf("                                   ");
         
