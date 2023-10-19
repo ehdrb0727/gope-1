@@ -203,8 +203,16 @@ void mugunghwa(void) {
 		if (tick >= 8001) {
 			tick = 0;
 		}
+		/*if (tick >= 4800 && tick <= 7800) {
+			gotoxy(6, 1);
+			printf("@");
+			gotoxy(7, 1);
+			printf("@");
+			gotoxy(8, 1);
+			printf("@");
+		}*/
 		u_1(tick);
-		display();
+		display_m();
 		Sleep(10);
 		tick += 10;
 	}

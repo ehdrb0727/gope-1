@@ -61,12 +61,23 @@ void display(void) {
 
 void display_m(void) {
 	draw();
-	gotoxy(6, 1);
-	printf("#");
-	gotoxy(7, 1);
-	printf("#");
-	gotoxy(8, 1);
-	printf("#");
+	if (tick >= 4800 && tick <= 7800) {
+		gotoxy(6, 1);
+		printf("@");
+		gotoxy(7, 1);
+		printf("@");
+		gotoxy(8, 1);
+		printf("@");
+		gotoxy(6, 1);
+	}
+	else if (tick >= 0 && tick < 4800) {
+		gotoxy(6, 1);
+		printf("#");
+		gotoxy(7, 1);
+		printf("#");
+		gotoxy(8, 1);
+		printf("#");
+	}
 	gotoxy(N_ROW + 4, 0);  // 추가로 표시할 정보가 있으면 맵과 상태창 사이의 빈 공간에 출력
 	print_status();
 }

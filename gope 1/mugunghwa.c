@@ -13,50 +13,52 @@
 #define DIR_ZERO	4
 
 void u_1(int count) {
-    char massage[100] = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
+    //char massage[100] = "¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù";
     if (count == 700) {
         gotoxy(N_ROW, 0);
-        printf("%c%c", massage[0], massage[2]);
+        printf("¹«");
     }
     if (count == 900) {
-        gotoxy(N_ROW, 2);
-        printf("%c%c", massage[3], massage[5]);
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã");
     }
     if (count == 1200) {
-        gotoxy(N_ROW, 4);
-        printf("%c%c", massage[6], massage[8]);
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­");
     }
     if (count == 1600) {
-        gotoxy(N_ROW, 6);
-        printf("%c%c", massage[9], massage[11]);
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É");
     }
     if (count == 2200) {
-        gotoxy(N_ROW, 8);
-        printf("%c%c", massage[12], massage[14]);
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É ÀÌ");
     }
-    if (count == 3000) {
-        gotoxy(N_ROW, 10);
-        printf("%c%c", massage[15], massage[17]);
+    if (count == 2800) {
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É ÀÌ ÇÇ");
     }
-    if (count == 3800) {
-        gotoxy(N_ROW, 12);
-        printf("%c%c", massage[18], massage[20]);
+    if (count == 3600) {
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú");
     }
-    if (count == 4400) {
-        gotoxy(N_ROW, 14);
-        printf("%c%c", massage[21], massage[23]);
+    if (count == 4200) {
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À");
+    }
+    if (count == 4600) {
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï");
     }
     if (count == 4800) {
-        gotoxy(N_ROW, 16);
-        printf("%c%c", massage[24], massage[26]);
+        gotoxy(N_ROW, 0);
+        printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù");
+        
     }
-    if (count == 5000) {
-        gotoxy(N_ROW, 18);
-        printf("%c", massage[27]);
-    }
-    if (count == 8000) {
+    if (count == 7800) {
         gotoxy(N_ROW, 0);
         printf("                                   ");
+        
     }
 }
 //void sample_init(void);
