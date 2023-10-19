@@ -94,37 +94,36 @@ void sample(void) {
 
 	system("cls");
 	display();
-	//int aa = 4;
-	while (1) {
-		/*if (aa == 4) {
+	int aa = 4;
+	 if (aa == 4) {
 			dialog("곧 게임이 시작됩니다.");
 			aa--;
-		}*/
-		// player 0만 손으로 움직임(4방향)
-		key_t key = get_key();
-		if (key == K_QUIT) {
-			break;
 		}
-		else if (key != K_UNDEFINED) {
-			move_manual(key);
-		}
+	//while (1) {
+	//	/*if (aa == 4) {
+	//		dialog("곧 게임이 시작됩니다.");
+	//		aa--;
+	//	}*/
+	//	// player 0만 손으로 움직임(4방향)
+	//	key_t key = get_key();
+	//	if (key == K_QUIT) {
+	//		break;
+	//	}
+	//	else if (key != K_UNDEFINED) {
+	//		move_manual(key);
+	//	}
 
-		// player 1 부터는 랜덤으로 움직임(8방향)
-		for (int i = 1; i < n_player; i++) {
-			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
-				move_random(i, -1);
-			}
-		 }
-		
-		display();
-		Sleep(10);
-		tick += 10;
-	}
-
-
-		/*display();
-		sleep(10);
-		tick += 10;*/
+	//	// player 1 부터는 랜덤으로 움직임(8방향)
+	//	for (int i = 1; i < n_player; i++) {
+	//		if (tick % period[i] == 0) {//period[i] = randint(100, 500);
+	//			move_random(i, -1);
+	//		}
+	//	 }
+	//	
+	//	display();
+	//	Sleep(10);
+	//	tick += 10;
+	
 }
 
 void npc_move(int player, int dir) {
@@ -185,7 +184,7 @@ void mugunghwa(void) {
 			dialog("곧 게임이 시작됩니다.");
 			aa--;
 		}*/
-		// player 0만 손으로 움직임(4방향)
+		// player 0만 손으로 움직임(4방향)ㄹ
 		key_t key = get_key();
 		if (key == K_QUIT) {
 			break;
