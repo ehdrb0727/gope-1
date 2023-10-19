@@ -59,6 +59,18 @@ void display(void) {
 	print_status();
 }
 
+void display_m(void) {
+	draw();
+	gotoxy(6, 1);
+	printf("#");
+	gotoxy(7, 1);
+	printf("#");
+	gotoxy(8, 1);
+	printf("#");
+	gotoxy(N_ROW + 4, 0);  // 추가로 표시할 정보가 있으면 맵과 상태창 사이의 빈 공간에 출력
+	print_status();
+}
+
 void draw(void) {
 	for (int row = 0; row < N_ROW; row++) {
 		for (int col = 0; col < N_COL; col++) {

@@ -85,6 +85,11 @@ void move_tail(int player, int nx, int ny) {
 	back_buf[px[p]][py[p]] = ' ';
 	px[p] = nx;
 	py[p] = ny;
+
+	//if ((nx == 5 && nx == 1) || (nx == 6 && ny == 2) || (nx == 7 && ny == 2) ||
+	//	(nx == 8 && ny == 2) || (nx == 9 && ny == 1))
+
+
 }
 
 
@@ -141,6 +146,7 @@ void npc_move(int player, int dir) {
 		if (ran >= 1 && ran <= 7){
 			nx = px[p];
 			ny = py[p] - 1;
+			
 		}
 		else if (ran == 8) {
 			nx = px[p] - 1;
@@ -177,12 +183,12 @@ void mg_init() {
 void mugunghwa(void) {
 	mg_init();
 	system("cls");
-	display();
+	display_m();
 	int aa = 4;
 	//u_1();
 	while (1) {
 		
-		// player 0만 손으로 움직임(4방향)ㄹ
+		//player 0만 손으로 움직임(4방향)
 		key_t key = get_key();
 		if (key == K_QUIT) {
 			break;
@@ -190,13 +196,16 @@ void mugunghwa(void) {
 		else if (key != K_UNDEFINED) {
 			move_manual(key);
 		}
-
-		// player 1 부터는 랜덤으로 움직임(8방향)
+		// player 1 부터는 랜덤으로 움직임(4방향)
 		for (int i = 1; i < n_player; i++) {
 			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
 				npc_move(i, -1);
 			}
 		}
+		if (tick >= 8001) {
+			tick = 0;
+		}
+		//u_1();
 		display();
 		Sleep(10);
 		tick += 10;
