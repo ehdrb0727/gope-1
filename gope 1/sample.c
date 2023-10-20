@@ -18,6 +18,7 @@ void mg_init(void);
 void npc_move(int player);
 
 int px[PLAYER_MAX], py[PLAYER_MAX], period[PLAYER_MAX];  // 각 플레이어 위치, 이동 주기
+int prev_px[PLAYER_MAX], prev_py[PLAYER_MAX]; //움직임 전의 좌표 기억
 
 void sample_init(void) {
 	map_init(15, 40);
@@ -48,7 +49,7 @@ void move_manual(key_t key) {
 	case K_UP: dir = DIR_UP; break;
 	case K_DOWN: dir = DIR_DOWN; break;
 	case K_LEFT: dir = DIR_LEFT; break;
-	case K_RIGHT: dir = DIR_RIGHT; break;	
+	case K_RIGHT: dir = DIR_RIGHT; break;
 	default: return;
 	}
 
@@ -100,10 +101,10 @@ void sample(void) {
 	system("cls");
 	display();
 	int aa = 4;
-	 if (aa == 4) {
-			dialog("곧 게임이 시작됩니다.");
-			aa--;
-		}
+	if (aa == 4) {
+		dialog("곧 게임이 시작됩니다.");
+		aa--;
+	}
 	//while (1) {
 	//	/*if (aa == 4) {
 	//		dialog("곧 게임이 시작됩니다.");
@@ -128,7 +129,7 @@ void sample(void) {
 	//	display();
 	//	Sleep(10);
 	//	tick += 10;
-	
+
 }
 
 void npc_move(int player, int dir) {
@@ -138,15 +139,15 @@ void npc_move(int player, int dir) {
 	int p = player;
 	int nx, ny;
 	int ai = 1;
-	
+
 	//gotoxy(N_ROW + 1, 0);
 	//printf("%d", ran);
 	do {
 		int ran = randint(1, 10);
-		if (ran >= 1 && ran <= 7){
+		if (ran >= 1 && ran <= 7) {
 			nx = px[p];
 			ny = py[p] - 1;
-			
+
 		}
 		else if (ran == 8) {
 			nx = px[p] - 1;
@@ -185,6 +186,7 @@ void mugunghwa(void) {
 	system("cls");
 	display_m();
 	int aa = 4;
+
 	while (1) {
 		//player 0만 손으로 움직임(4방향)
 		key_t key = get_key();
@@ -197,21 +199,40 @@ void mugunghwa(void) {
 		// player 1 부터는 랜덤으로 움직임(4방향)
 		for (int i = 1; i < n_player; i++) {
 			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
-				npc_move(i, -1);
+				if (tick >= 5000 && tick < 8000) {
+					int random_chance = rand() % 10;
+					if (random_chance == 0) {
+
+						npc_move(i, -1);
+					}
+					else {
+						if (px[i] != prev_px[i] && py[i] != prev_py[i]) {
+
+							player[i] = false;
+							dialog_m("탈락");
+
+							back_buf[px[i]][py[i]] = ' ';
+						}
+						else {
+							continue;
+						}
+					}
+
+					prev_px[i] = px[i];
+					prev_py[i] = py[i];
+				}
+				else {
+					npc_move(i, -1);
+
+				}
 			}
 		}
 		if (tick >= 8001) {
 			tick = 0;
 		}
-		/*if (tick >= 4800 && tick <= 7800) {
-			gotoxy(6, 1);
-			printf("@");
-			gotoxy(7, 1);
-			printf("@");
-			gotoxy(8, 1);
-			printf("@");
-		}*/
+
 		u_1(tick);
+
 		display_m();
 		Sleep(10);
 		tick += 10;

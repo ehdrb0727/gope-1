@@ -61,7 +61,7 @@ void display(void) {
 
 void display_m(void) {
 	draw();
-	if (tick >= 4800 && tick <= 7800) {
+	if (tick >= 5000 && tick <= 8000) {
 		gotoxy(6, 1);
 		printf("@");
 		gotoxy(7, 1);
@@ -70,7 +70,7 @@ void display_m(void) {
 		printf("@");
 		gotoxy(6, 1);
 	}
-	else if (tick >= 0 && tick < 4800) {
+	else if (tick >= 0 && tick < 5000) {
 		gotoxy(6, 1);
 		printf("#");
 		gotoxy(7, 1);
@@ -119,5 +119,27 @@ void dialog(char message[]) {
 		printf("                           \n");
 		gotoxy(7, 7);
 		printf("                           \n");
+	}
+}
+
+void dialog_m(char message[]) {
+	int ii = DIALOG_DURATION_SEC;
+	if (ii > 1) {
+		for (int i = 4; i > 0; i--) {
+			gotoxy(5, 7);
+			printf("**********************\n");
+			gotoxy(6, 7);
+			printf("* %d %s             *\n", i, message);
+			gotoxy(7, 7);
+			printf("**********************\n");
+			Sleep(1000);
+			ii--;
+		}
+		gotoxy(5, 7);
+		printf("                        \n");
+		gotoxy(6, 7);
+		printf("                        \n");
+		gotoxy(7, 7);
+		printf("                        \n");
 	}
 }
