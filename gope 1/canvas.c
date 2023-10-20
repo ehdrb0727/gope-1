@@ -100,7 +100,7 @@ void print_status(void) {
 	}
 }
 
-void dialog(char message[]) {
+void dialog(char message[]) { //탈락 전용 다이얼로그
 	int ii = DIALOG_DURATION_SEC;
 	if (ii > 1) {
 		for (int i = 4; i > 0; i--) {

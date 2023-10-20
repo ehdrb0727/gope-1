@@ -200,25 +200,25 @@ void mugunghwa(void) {
 		for (int i = 1; i < n_player; i++) {
 			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
 				if (tick >= 5000 && tick < 8000) {
-					int random_chance = rand() % 10;
+					int random_chance = rand() % 10; // 1/10 È®·ü·Î npc move
 					if (random_chance == 0) {
 
 						npc_move(i, -1);
 					}
 					else {
-						if (px[i] != prev_px[i] && py[i] != prev_py[i]) {
+						if (px[i] != prev_px[i] || py[i] != prev_py[i]) { //x, yÁÂÇ¥°¡ ÀúÀåÇØÁØ ±â¾ï°ú ´Ù¸£¸é
 
 							player[i] = false;
-							dialog_m("Å»¶ô");
+							dialog_m("Å»¶ô");  //Å»¶ô (player ¸î Å»¶ô ÀÌ°Å ¸øÇÔ)
 
-							back_buf[px[i]][py[i]] = ' ';
+							back_buf[px[i]][py[i]] = ' '; //Å»¶ôÇÑ ÇÃ·¹ÀÌ¾î °ø¹éÃ³¸®
 						}
 						else {
-							continue;
+							continue; //Å»¶ôÇÑ ÇÃ·¹ÀÌ¾î ¸ØÃã
 						}
 					}
 
-					prev_px[i] = px[i];
+					prev_px[i] = px[i]; //ÀúÀåµÈ x, yÁÂÇ¥ ´Ù½Ã ¹Ù²Þ
 					prev_py[i] = py[i];
 				}
 				else {
