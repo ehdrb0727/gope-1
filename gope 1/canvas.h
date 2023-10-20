@@ -24,5 +24,5 @@ bool placable(int row, int col);
 void display(void);
 void gotoxy(int x, int y);
 void printxy(char ch, int row, int col);
-
+bool safe(int row, int col);
 #endif

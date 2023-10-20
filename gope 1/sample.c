@@ -61,7 +61,8 @@ void move_manual(key_t key) {
 		return;
 	}
 
-	move_tail(0, nx, ny);
+	safe(0, nx, ny);
+	
 }
 
 // 0 <= dir < 4가 아니면 랜덤
@@ -76,7 +77,9 @@ void move_random(int player, int dir) {
 		ny = py[p] + randint(-1, 0);
 	} while (!placable(nx, ny));
 
-	move_tail(p, nx, ny);
+	safe(p, nx, ny);
+	//move_tail(p, nx, ny);
+	
 }
 
 // back_buf[][]에 기록
@@ -92,6 +95,7 @@ void move_tail(int player, int nx, int ny) {
 
 
 }
+
 
 
 
@@ -146,7 +150,7 @@ void npc_move(int player, int dir) {
 		int ran = randint(1, 10);
 		if (ran >= 1 && ran <= 7) {
 			nx = px[p];
-			ny = py[p] - 1;
+			ny = py[p] - 1; //(px[4], py[4])
 
 		}
 		else if (ran == 8) {
@@ -162,10 +166,10 @@ void npc_move(int player, int dir) {
 			ny = py[p];
 		}
 	} while (!placable(nx, ny));
-	move_tail(p, nx, ny);
+	safe(p, nx, ny);
 }
 void mg_init() {
-	map_init(15, 35);
+	map_init(15, 40);
 	int x, y;
 	for (int i = 0; i < n_player; i++) {
 		// 같은 자리가 나오면 다시 생성
@@ -181,13 +185,27 @@ void mg_init() {
 	tick = 0;
 }
 
+void safe(int player, int nx, int ny) {
+	int p = player;
+	back_buf[nx][ny] = back_buf[px[p]][py[p]];
+	back_buf[px[p]][py[p]] = ' ';
+	px[p] = nx;
+	py[p] = ny;
+	if ((nx == 5 && nx == 1) || (nx == 6 && ny == 2) || (nx == 7 && ny == 2) ||
+		(nx == 8 && ny == 2) || (nx == 9 && ny == 1)) {
+
+		back_buf[px[p]][py[p]] = ' ';
+	}	
+}
+
 void mugunghwa(void) {
 	mg_init();
 	system("cls");
 	display_m();
 	int aa = 4;
-
 	while (1) {
+		int alive_players = n_player;
+		int dead_players = 0;
 		//player 0만 손으로 움직임(4방향)
 		key_t key = get_key();
 		if (key == K_QUIT) {
@@ -200,22 +218,39 @@ void mugunghwa(void) {
 		for (int i = 1; i < n_player; i++) {
 			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
 				if (tick >= 5000 && tick < 8000) {
-					int random_chance = rand() % 10; // 1/10 확률로 npc move
-					if (random_chance == 0) {
+					int random_chance = randint(1, 5000); // 1/10 확률로 npc move
+					if (random_chance == 1) {
 
 						npc_move(i, -1);
 					}
-					else {
+					else {//영희의 시선에서 관련된 부분 
 						if (px[i] != prev_px[i] || py[i] != prev_py[i]) { //x, y좌표가 저장해준 기억과 다르면
-
 							player[i] = false;
-							dialog_m("탈락");  //탈락 (player 몇 탈락 이거 못함)
-
 							back_buf[px[i]][py[i]] = ' '; //탈락한 플레이어 공백처리
+							alive_players--;
+							dead_players++;
 						}
 						else {
-							continue; //탈락한 플레이어 멈춤
+							int state = false;
+							for (int j = 0; j < n_player; j++) {
+								if (px[j] == px[i] && py[j] < py[i]) {
+									state = true;
+									break; // 다른 플레이어가 앞에 가려서 탈락 안하도록 패스하기
+								}
+							}
+							if (state == true) {
+								continue;
+							}
 						}
+					}
+
+
+					if (px[0] != prev_px[0] || py[0] != prev_py[0]) {
+						//move_manual(key);
+						player[0] = false;
+						back_buf[px[0]][py[0]] = ' '; //탈락한 플레이어 공백처리
+						alive_players--;
+						dead_players++;
 					}
 
 					prev_px[i] = px[i]; //저장된 x, y좌표 다시 바꿈
@@ -227,7 +262,10 @@ void mugunghwa(void) {
 				}
 			}
 		}
-		if (tick >= 8001) {
+		if (tick == 8010) {
+			dialog_m(alive_players, dead_players);
+		}
+		if (tick >= 8030) {
 			tick = 0;
 		}
 
