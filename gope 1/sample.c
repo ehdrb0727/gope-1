@@ -220,7 +220,7 @@ void mugunghwa(void) {
 			int prev_x = px[0];
 			int prev_y = py[0];
 			move_manual(key);
-			if (tick >= 4000 && tick < 7000) {
+			if (uh == 1) {
 				int state = 0;
 				for (int j = 0; j < n_player; j++) {
 					if (px[j] == px[0] && py[j] < py[0]) {
@@ -317,7 +317,7 @@ void mugunghwa(void) {
 				}
 			}
 		}
-		if (tick == 7000) {
+		if (tick == 6000) {
 			uh = 0;
 			if (dead_players != 0) {
 				dialog_m(dg);
@@ -326,7 +326,7 @@ void mugunghwa(void) {
 				int is = 6;
 			}
 		}
-		if (tick >= 7010) {
+		if (tick >= 6010) {
 			tick = 0;
 		}
 		u_1(tick);
