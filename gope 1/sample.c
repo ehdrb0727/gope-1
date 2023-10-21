@@ -62,7 +62,7 @@ void move_manual(key_t key) {
 	}
 
 	safe(0, nx, ny);
-	
+
 }
 
 // 0 <= dir < 4가 아니면 랜덤
@@ -79,7 +79,7 @@ void move_random(int player, int dir) {
 
 	safe(p, nx, ny);
 	//move_tail(p, nx, ny);
-	
+
 }
 
 // back_buf[][]에 기록
@@ -195,7 +195,7 @@ void safe(int player, int nx, int ny) {
 		(nx == 8 && ny == 2) || (nx == 9 && ny == 1)) {
 
 		back_buf[px[p]][py[p]] = ' ';
-	}	
+	}
 }
 
 void mugunghwa(void) {
@@ -214,44 +214,51 @@ void mugunghwa(void) {
 		else if (key != K_UNDEFINED) {
 			move_manual(key);
 		}
+
 		// player 1 부터는 랜덤으로 움직임(4방향)
 		for (int i = 1; i < n_player; i++) {
+			if (tick >= 4000 && tick < 7000) {
+				int prev_x = px[0];
+				int prev_y = py[0];
+				move_manual(key);
+
+
+				if (px[0] != prev_x || py[0] != prev_y) {
+					player[0] = false;
+					back_buf[px[0]][py[0]] = ' ';
+					//alive_players--;
+					//dead_players++;
+				}
+
+			}
 			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
-				if (tick >= 5000 && tick < 8000) {
-					int random_chance = randint(1, 5000); // 1/10 확률로 npc move
-					if (random_chance == 1) {
-
-						npc_move(i, -1);
-					}
-					else {//영희의 시선에서 관련된 부분 
-						if (px[i] != prev_px[i] || py[i] != prev_py[i]) { //x, y좌표가 저장해준 기억과 다르면
-							player[i] = false;
-							back_buf[px[i]][py[i]] = ' '; //탈락한 플레이어 공백처리
-							alive_players--;
-							dead_players++;
-						}
-						else {
-							int state = false;
-							for (int j = 0; j < n_player; j++) {
-								if (px[j] == px[i] && py[j] < py[i]) {
-									state = true;
-									break; // 다른 플레이어가 앞에 가려서 탈락 안하도록 패스하기
-								}
-							}
-							if (state == true) {
-								continue;
+				if (tick >= 4000 && tick < 7000) {
+					if (tick % 200 == 0) {
+						int random_chance = rand() % 10; // 1/10 확률로 npc move
+						if (random_chance == 0) {
+							npc_move(i, -1);
+							if (px[i] != prev_px[i] || py[i] != prev_py[i]) {
+								player[i] = false;
+								back_buf[px[i]][py[i]] = ' ';
 							}
 						}
 					}
+					/* else {
+						 int state = false;
+						 for (int j = 0; j < n_player; j++) {
+								 if (px[j] == px[i] && py[j] < py[i]) {
+								 state = true;
+									 break; // 다른 플레이어가 앞에 가려서 탈락 안하도록 패스하기
+								 }
+							 }
+							 if (state == true) {
+								 continue;
+							 }
+						 }
+					 }*/
 
 
-					if (px[0] != prev_px[0] || py[0] != prev_py[0]) {
-						//move_manual(key);
-						player[0] = false;
-						back_buf[px[0]][py[0]] = ' '; //탈락한 플레이어 공백처리
-						alive_players--;
-						dead_players++;
-					}
+
 
 					prev_px[i] = px[i]; //저장된 x, y좌표 다시 바꿈
 					prev_py[i] = py[i];

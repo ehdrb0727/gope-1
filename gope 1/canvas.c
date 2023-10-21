@@ -62,7 +62,7 @@ void display(void) {
 
 void display_m(void) {
 	draw();
-	if (tick >= 5000 && tick <= 8000) {
+	if (tick >= 4000 && tick <= 7000) {
 		gotoxy(6, 1);
 		printf("@");
 		gotoxy(7, 1);
@@ -71,7 +71,7 @@ void display_m(void) {
 		printf("@");
 		gotoxy(6, 1);
 	}
-	else if (tick >= 0 && tick < 5000) {
+	else if (tick >= 0 && tick < 4000) {
 		gotoxy(6, 1);
 		printf("#");
 		gotoxy(7, 1);

@@ -22,40 +22,40 @@ void u_1(int count) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã");
     }
-    if (count == 700) {
+    if (count == 500) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­");
     }
-    if (count == 1500) {
+    if (count == 900) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É");
     }
-    if (count == 2500) {
+    if (count == 1700) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ");
     }
-    if (count == 3500) {
+    if (count == 2500) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ");
     }
-    if (count == 4000) {
+    if (count == 3300) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú");
     }
-    if (count == 4400) {
+    if (count == 3600) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À");
     }
-    if (count == 4700) {
+    if (count == 3800) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï");
     }
-    if (count == 5000) {
+    if (count == 4000) {
         gotoxy(N_ROW, 0);
         printf("¹« ±Ã È­ ²É ÀÌ ÇÇ ¾ú ½À ´Ï ´Ù");
         
     }
-    if (count == 8000) {
+    if (count == 7000) {
         gotoxy(N_ROW, 0);
         printf("                                   ");
         
