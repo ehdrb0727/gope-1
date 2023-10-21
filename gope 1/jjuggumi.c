@@ -48,10 +48,51 @@ int intro(void) {
     }
     system("cls");
 }
+int a;
+void ending(void) {
+	if (n_alive == 1) {
+		system("cls");
+		for (int i = 0; i < n_player; i++) {
+			if (player[i]) {
+				printf(" ##   ##   ####    ##   ##  ##   ##  #######  ######\n");
+				printf(" ##   ##    ##     ###  ##  ###  ##   ##   #   ##  ##\n");
+				printf(" ##   ##    ##     #### ##  #### ##   ## #     ##  ##\n");
+				printf(" ## # ##    ##     ## ####  ## ####   ####     #####\n");
+				printf(" #######    ##     ##  ###  ##  ###   ## #     ## ##\n");
+				printf(" ### ###    ##     ##   ##  ##   ##   ##   #   ##  ##\n");
+				printf(" ##   ##   ####    ##   ##  ##   ##  #######  #### ##\n");
+				printf("\n");
+				printf("우승자: player %d", i);
+				printf("\n");
+				printf("\n");
+			}
+
+		}
+		printf("아무 키를 누르면 종료됩니다...\n");
+		// 아무 키 입력 대기
+		while (!kbhit()) {}
+
+		// 프로그램 종료
+		exit(0);
+	}
+	else {
+				printf("우승자를 찾을 수 없습니다.\n");
+			
+
+		}
+		printf("아무 키를 누르면 종료됩니다...\n");
+		// 아무 키 입력 대기
+		while (!kbhit()) {}
+
+		// 프로그램 종료
+		exit(0);
+	}
+
 int main() {
     jjuggumi_init();
     sample();
     mugunghwa();
+    ending();
     return 0;
 }
 

@@ -117,7 +117,7 @@ void mg_init() {
 		} while (!placable(x, y));
 		px[i] = x;
 		py[i] = y;
-		period[i] = randint(100, 300);
+		period[i] = randint(10, 30);
 		back_buf[px[i]][py[i]] = '0' + i;  // (0 .. n_player-1)
 	}
 	tick = 0;
@@ -292,9 +292,11 @@ void mugunghwa(void) {
 			}
 		}
 		if (a == n_alive) {
+			system("cls");
 			break;
 		}
 		if (n_alive == 1) {
+			system("cls");
 			break;
 		}
 	}
