@@ -46,8 +46,9 @@ int main(void) {
     //printf("%c", massage[2], massage[3]);
 	jjuggumi_init();
     //intro();
-    sample();
+    //sample();
     mugunghwa();
+
     //u_1();
     //sample();
 	//dialog("곧 게임이 시작됩니다.");

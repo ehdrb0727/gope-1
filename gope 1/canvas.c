@@ -95,7 +95,7 @@ void draw(void) {
 }
 
 void print_status(void) {
-	printf("no. of players left: %d\n", n_alive);
+	printf("no. of players left: %d \n", n_alive);
 	for (int p = 0; p < n_player; p++) {
 		printf("player %2d: %5s\n", p, player[p] ? "alive" : "DEAD");		
 	}
@@ -134,7 +134,7 @@ void dialog_m(char massage[]) {//탈락 전용 다이얼로그
             gotoxy(5, 5);
             printf("*                           *\n");
             gotoxy(6, 5);
-            printf("*                           *\n");
+            printf("                             \n");
             gotoxy(7, 5);
             printf("*                           *\n");
             gotoxy(8, 5);

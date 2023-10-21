@@ -228,6 +228,29 @@ void mugunghwa(void) {
 						break;
 					}
 				}
+				if (player[0] == true) {
+					if (px[0] != prev_x || py[0] != prev_y) {
+						if (state == 0) {
+							player[0] = false;
+							if (player[0] == false) n_alive--; dead_players++;
+							back_buf[px[0]][py[0]] = ' ';
+							int length = strlen(dg);
+							for (int j = length; j >= is; j--) {
+								dg[j + 1] = dg[j];
+							}
+							dg[is] = ',';
+							is++;
+							for (int j = length; j >= is; j--) {
+								dg[j + 1] = dg[j];
+							}
+							dg[is] = '0';
+							is++;
+							gotoxy(N_ROW + 3, 0);
+							printf("%d", dead_players);
+						}
+						
+					}
+				}
 				if (px[0] != prev_x || py[0] != prev_y) {
 					if (state == 0) {
 						player[0] = false;
@@ -239,12 +262,13 @@ void mugunghwa(void) {
 
 		// player 1 부터는 랜덤으로 움직임(4방향)
 		for (int i = 1; i < n_player; i++) {
-			if (uh == 1) {
+			/*if (uh == 1) {
 				int prev_x = px[0];
 				int prev_y = py[0];
 				if (player[0] == true) {
 					if (px[0] != prev_x || py[0] != prev_y) {
 						player[0] = false;
+						if (player[0] == false) n_alive--; dead_players++;
 						back_buf[px[0]][py[0]] = ' ';
 						int length = strlen(dg);
 						for (int j = length; j >= is; j--) {
@@ -257,15 +281,13 @@ void mugunghwa(void) {
 						}
 						dg[is] = '0';
 						is++;
-						n_alive--;
-						dead_players++;
 						gotoxy(N_ROW + 3, 0);
 						printf("%d", dead_players);
 					}
 				}
 
 
-			}
+			}*/
 			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
 				if (uh == 1) {
 					random_chance = randint(1, 10); // 1/10 확률로 npc move
@@ -322,8 +344,23 @@ void mugunghwa(void) {
 			if (dead_players != 0) {
 				dialog_m(dg);
 				dead_players = 0;
-				char dg[100] = "player  dead!";
-				int is = 6;
+				for (int i = 0; i < 23; i++) {
+					dg[i] = ' ';
+				}
+				dg[0] = 'p';
+				dg[1] = 'l';
+				dg[2] = 'a';
+				dg[3] = 'y';
+				dg[4] = 'e';
+				dg[5] = 'r';
+				dg[6] = ' ';
+				dg[7] = ' ';
+				dg[8] = 'd';
+				dg[9] = 'e';
+				dg[10] = 'a';
+				dg[11] = 'd';
+				dg[12] = '!';
+				is = 6;
 			}
 		}
 		if (tick >= 6010) {
@@ -335,5 +372,8 @@ void mugunghwa(void) {
 		tick += 10;
 		gotoxy(N_ROW + 2, 0);
 		printf("%d", tick);
+		if (n_alive == 1) {
+			break;
+		}
 	}
 }
