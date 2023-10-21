@@ -179,12 +179,12 @@ void mg_init() {
 		} while (!placable(x, y));
 		px[i] = x;
 		py[i] = y;
-		period[i] = randint(100, 300);
+		period[i] = randint(40, 50);
 		back_buf[px[i]][py[i]] = '0' + i;  // (0 .. n_player-1)
 	}
 	tick = 0;
 }
-
+int winner[15];
 void safe(int player, int nx, int ny) {
 	int p = player;
 	back_buf[nx][ny] = back_buf[px[p]][py[p]];
@@ -193,13 +193,14 @@ void safe(int player, int nx, int ny) {
 	py[p] = ny;
 	if ((nx == 5 && ny == 1) || (nx == 6 && ny == 2) || (nx == 7 && ny == 2) ||
 		(nx == 8 && ny == 2) || (nx == 9 && ny == 1)) {
-
+		winner[p] = 111;
 		back_buf[px[p]][py[p]] = ' ';
 	}
 }
 int random_chance;
 char dg;
 int is;
+
 void mugunghwa(void) {
 	mg_init();
 	system("cls");
@@ -209,8 +210,8 @@ void mugunghwa(void) {
 	int ii = 0;
 	char dg[100] = "player  dead!";
 	int is = 6;
+	int a;
 	while (1) {
-
 		//player 0만 손으로 움직임(4방향)
 		key_t key = get_key();
 		if (key == K_QUIT) {
@@ -292,7 +293,9 @@ void mugunghwa(void) {
 				if (uh == 1) {
 					random_chance = randint(1, 10); // 1/10 확률로 npc move
 					if (random_chance == 1) {
-						npc_move(i, -1);
+						if (winner[i] != 111) {
+							npc_move(i, -1);
+						}
 						if (player[i] == true) {
 							if (px[i] != prev_px[i] || py[i] != prev_py[i]) {
 								int length = strlen(dg);
@@ -372,6 +375,15 @@ void mugunghwa(void) {
 		tick += 10;
 		gotoxy(N_ROW + 2, 0);
 		printf("%d", tick);
+		int a = 0;
+		for (int i = 0; i < 10; i++) {
+			if (player[i] == true && winner[i] == 111) {
+				a++;
+			}
+		}
+		if (a == n_alive) {
+			break;
+		}
 		if (n_alive == 1) {
 			break;
 		}

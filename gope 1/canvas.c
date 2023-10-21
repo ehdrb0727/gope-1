@@ -155,7 +155,7 @@ void dialog_m(char massage[]) {//탈락 전용 다이얼로그
         gotoxy(5, 5);
         printf("                             \n");
         gotoxy(6, 5);
-        printf("                             \n");
+        printf("                                  \n");
         gotoxy(7, 5);
         printf("                             \n");
         gotoxy(8, 5);

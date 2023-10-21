@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <time.h>
-
+#include <stdlib.h>
 
 int intro(void) {
     system("cls");
@@ -40,21 +40,9 @@ int intro(void) {
     system("cls");
 }
 //char massage[100] = "무 궁 화 꽃 이 피 었 습 니 다";
-int main(void) {
-    //int i = strlen(massage);
-    //printf("%c", massage[2]);
-    //printf("%c", massage[2], massage[3]);
-	jjuggumi_init();
-    //intro();
-    //sample();
+//int aa[] = {0};
+int main() {
+    jjuggumi_init();
     mugunghwa();
-
-    //u_1();
-    //sample();
-	//dialog("곧 게임이 시작됩니다.");
-	//mugunghwa();
-	//nightgame();
-	//juldarigi();
-	//jebi();
-	return 0;
+    return 0;
 }
