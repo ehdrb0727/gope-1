@@ -201,125 +201,139 @@ int random_chance;
 char dg;
 int is;
 void mugunghwa(void) {
-   mg_init();
-   system("cls");
-   display_m();
-   int aa = 4;
-   int dead_players = 0;
-   int ii = 0;
-   char dg[100] = "player  dead!";
-   int is = 6;
-   while (1) {
+	mg_init();
+	system("cls");
+	display_m();
+	int aa = 4;
+	int dead_players = 0;
+	int ii = 0;
+	char dg[100] = "player  dead!";
+	int is = 6;
+	while (1) {
 
-      //player 0만 손으로 움직임(4방향)
-      key_t key = get_key();
-      if (key == K_QUIT) {
-         break;
-      }
-      else if (key != K_UNDEFINED) {
-         move_manual(key);
-      }
-      // player 1 부터는 랜덤으로 움직임(4방향)
-      for (int i = 1; i < n_player; i++) {
-         if (uh == 1) {
-            int prev_x = px[0];
-            int prev_y = py[0];
-            if (player[0] == true) {
-               move_manual(key);
-               if (px[0] != prev_x || py[0] != prev_y) {
-                  player[0] = false;
-                  back_buf[px[0]][py[0]] = ' ';
-                  int length = strlen(dg);
-                  for (int j = length; j >= is; j--) {
-                     dg[j + 1] = dg[j];
-                  }
-                  dg[is] = ',';
-                  is++;
-                  for (int j = length; j >= is; j--) {
-                     dg[j + 1] = dg[j];
-                  }
-                  dg[is] = '0';
-                  is++;
-                  n_alive--;
-                  dead_players++;
-                  gotoxy(N_ROW + 3, 0);
-                  printf("%d", dead_players);
-               }
-            }
+		//player 0만 손으로 움직임(4방향)
+		key_t key = get_key();
+		if (key == K_QUIT) {
+			break;
+		}
+		else if (key != K_UNDEFINED) {
+			int prev_x = px[0];
+			int prev_y = py[0];
+			move_manual(key);
+			if (tick >= 4000 && tick < 7000) {
+				int state = 0;
+				for (int j = 0; j < n_player; j++) {
+					if (px[j] == px[0] && py[j] < py[0]) {
+						state = 1;
+						break;
+					}
+				}
+				if (px[0] != prev_x || py[0] != prev_y) {
+					if (state == 0) {
+						player[0] = false;
+						back_buf[px[0]][py[0]] = ' ';
+					}
+				}
+			}
+		}
 
-
-         }
-         if (tick % period[i] == 0) {//period[i] = randint(100, 500);
-            if (uh == 1) {
-               random_chance = randint(1, 10); // 1/10 확률로 npc move
-               if (random_chance == 1) {
-                  npc_move(i, -1);
-                  if (player[i] == true) {
-                     if (px[i] != prev_px[i] || py[i] != prev_py[i]) {
-                        int length = strlen(dg);
-                        for (int j = length; j >= is; j--) {
-                           dg[j + 1] = dg[j];
-                        }
-                        dg[is] = ',';
-                        is++;
-                        for (int j = length; j >= is; j--) {
-                           dg[j + 1] = dg[j];
-                        }
-                        dg[is] = i + '0';
-                        is++;
-                        dead_players++;
-                        gotoxy(N_ROW + 3, 0);
-                        printf("%d", dead_players);
-                        player[i] = false;
-                        back_buf[px[i]][py[i]] = ' ';
-                        n_alive--;
-                        ii++;
-                     }
-                  }
-               }
-               /* else {
-                   int state = false;
-                   for (int j = 0; j < n_player; j++) {
-                         if (px[j] == px[i] && py[j] < py[i]) {
-                         state = true;
-                            break; // 다른 플레이어가 앞에 가려서 탈락 안하도록 패스하기
-                         }
-                      }
-                      if (state == true) {
-                         continue;
-                      }
-                   }
-                }*/
+		// player 1 부터는 랜덤으로 움직임(4방향)
+		for (int i = 1; i < n_player; i++) {
+			if (uh == 1) {
+				int prev_x = px[0];
+				int prev_y = py[0];
+				if (player[0] == true) {
+					if (px[0] != prev_x || py[0] != prev_y) {
+						player[0] = false;
+						back_buf[px[0]][py[0]] = ' ';
+						int length = strlen(dg);
+						for (int j = length; j >= is; j--) {
+							dg[j + 1] = dg[j];
+						}
+						dg[is] = ',';
+						is++;
+						for (int j = length; j >= is; j--) {
+							dg[j + 1] = dg[j];
+						}
+						dg[is] = '0';
+						is++;
+						n_alive--;
+						dead_players++;
+						gotoxy(N_ROW + 3, 0);
+						printf("%d", dead_players);
+					}
+				}
 
 
+			}
+			if (tick % period[i] == 0) {//period[i] = randint(100, 500);
+				if (uh == 1) {
+					random_chance = randint(1, 10); // 1/10 확률로 npc move
+					if (random_chance == 1) {
+						npc_move(i, -1);
+						if (player[i] == true) {
+							if (px[i] != prev_px[i] || py[i] != prev_py[i]) {
+								int length = strlen(dg);
+								for (int j = length; j >= is; j--) {
+									dg[j + 1] = dg[j];
+								}
+								dg[is] = ',';
+								is++;
+								for (int j = length; j >= is; j--) {
+									dg[j + 1] = dg[j];
+								}
+								dg[is] = i + '0';
+								is++;
+								dead_players++;
+								gotoxy(N_ROW + 3, 0);
+								printf("%d", dead_players);
+								player[i] = false;
+								back_buf[px[i]][py[i]] = ' ';
+								n_alive--;
+								ii++;
+							}
+						}
+					}
+					else {
+						int state = false;
+						for (int j = 0; j < n_player; j++) {
+							if (px[j] == px[i] && py[j] < py[i]) {
+								state = true;
+								break; // 다른 플레이어가 앞에 가려서 탈락 안하도록 패스하기
+							}
+						}
+						if (state == true) {
+							continue;
+						}
+					}
 
 
-               prev_px[i] = px[i]; //저장된 x, y좌표 다시 바꿈
-               prev_py[i] = py[i];
-            }
-            else {
-               npc_move(i, -1);
+					prev_px[i] = px[i]; //저장된 x, y좌표 다시 바꿈
+					prev_py[i] = py[i];
+				}
+				else {
+					npc_move(i, -1);
 
-            }
-         }
-      }
-      if (tick == 7000) {
-         uh = 0;
-         if (dead_players != 0) {
-            dialog_m(dg);
-            dead_players = 0;
-            char dg[100] = "player  dead!";
-            int is = 6;
-         }
-      }
-      if (tick >= 7010) {
-         tick = 0;
-      }
-      u_1(tick);
-      display_m();
-      Sleep(10);
-      tick += 10;
-      gotoxy(N_ROW + 2, 0);
-      printf("%d", tick);
-   }
+				}
+			}
+		}
+		if (tick == 7000) {
+			uh = 0;
+			if (dead_players != 0) {
+				dialog_m(dg);
+				dead_players = 0;
+				char dg[100] = "player  dead!";
+				int is = 6;
+			}
+		}
+		if (tick >= 7010) {
+			tick = 0;
+		}
+		u_1(tick);
+		display_m();
+		Sleep(10);
+		tick += 10;
+		gotoxy(N_ROW + 2, 0);
+		printf("%d", tick);
+	}
 }
