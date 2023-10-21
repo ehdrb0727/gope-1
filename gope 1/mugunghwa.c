@@ -53,7 +53,7 @@ void u_1(int count) {
     if (count == 4000) {
         gotoxy(N_ROW, 0);
         printf("무 궁 화 꽃 이 피 었 습 니 다");
-        
+        uh = 1;
     }
     if (count == 7000) {
         gotoxy(N_ROW, 0);

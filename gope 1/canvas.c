@@ -125,29 +125,43 @@ void dialog(char message[]) { //탈락 전용 다이얼로그
 	}
 }
 
-void dialog_m(int alive, int dead) {
-	int ii = DIALOG_DURATION_SEC;
-	if (ii > 1) {
-		for (int i = 4; i > 0; i--) {
-			gotoxy(5, 7);
-			printf("**\n");
-			gotoxy(6, 7);
-			printf("* %d player %d dead!   *\n", alive, dead);
-			gotoxy(7, 7);
-			printf("**\n");
+void dialog_m(char massage[]) {//탈락 전용 다이얼로그
+    int ii = DIALOG_DURATION_SEC;
+    if (ii > 1) {
+        for (int i = 3; i > 0; i--) {
+            gotoxy(4, 5);
+            printf("*****************************\n");
+            gotoxy(5, 5);
+            printf("*                           *\n");
+            gotoxy(6, 5);
+            printf("*                           *\n");
+            gotoxy(7, 5);
+            printf("*                           *\n");
+            gotoxy(8, 5);
+            printf("*****************************\n");
+            gotoxy(6, 8);
+            printf("%d %s", i, massage);
 
-			display_m();
 
-			Sleep(1000);
-			ii--;
-		}
-		gotoxy(5, 7);
-		printf("                        \n");
-		gotoxy(6, 7);
-		printf("                        \n");
-		gotoxy(7, 7);
-		printf("                        \n");
+            Sleep(1000);
 
-		//display_m();
-	}
+            display_m();
+
+            Sleep(1000);
+            ii--;
+        }
+        gotoxy(4, 5);
+        printf("                             \n");
+        gotoxy(5, 5);
+        printf("                             \n");
+        gotoxy(6, 5);
+        printf("                             \n");
+        gotoxy(7, 5);
+        printf("                             \n");
+        gotoxy(8, 5);
+        printf("                             \n");
+
+        //display_m();
+    }
 }
+
