@@ -224,7 +224,7 @@ void mugunghwa(void) {
 					}
 				}
 				if (px[0] != prev_x || py[0] != prev_y) {
-					if (state == 1) {
+					if (state == 0) {
 						player[0] = false;
 						back_buf[px[0]][py[0]] = ' ';
 					}
